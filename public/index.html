@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UIUC Study Spot</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🐢 Study Spot</h1>
+    <p class="subtitle">Live crowd levels for study spots around UIUC</p>
+  </header>
+
+  <main>
+    <div class="controls">
+      <input id="search" type="text" placeholder="Search spots or buildings..." />
+      <select id="categoryFilter">
+        <option value="">All categories</option>
+      </select>
+    </div>
+
+    <div id="spotList" class="spot-list"></div>
+  </main>
+
+  <div id="reportModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <h2 id="modalTitle">Report crowd level</h2>
+      <p id="modalSubtitle" class="modal-subtitle"></p>
+      <div class="level-buttons">
+        <button class="level-btn" data-level="1"><span class="dot level-1"></span>Empty</button>
+        <button class="level-btn" data-level="2"><span class="dot level-2"></span>Light</button>
+        <button class="level-btn" data-level="3"><span class="dot level-3"></span>Moderate</button>
+        <button class="level-btn" data-level="4"><span class="dot level-4"></span>Packed</button>
+      </div>
+      <p id="modalStatus" class="modal-status"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
