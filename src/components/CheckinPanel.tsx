@@ -15,10 +15,13 @@ export function CheckinPanel({
   spotId,
   cooldownRemainingSeconds,
   isLoggedIn,
+  onSuccess,
 }: {
   spotId: string;
   cooldownRemainingSeconds: number;
   isLoggedIn: boolean;
+  /** Called instead of router.refresh() — used by the slide-over, which fetches its own data. */
+  onSuccess?: () => void;
 }) {
   const router = useRouter();
   const [remaining, setRemaining] = useState(cooldownRemainingSeconds);
@@ -67,7 +70,8 @@ export function CheckinPanel({
       return;
     }
     setRemaining(20 * 60);
-    router.refresh();
+    if (onSuccess) onSuccess();
+    else router.refresh();
   }
 
   if (remaining > 0) {

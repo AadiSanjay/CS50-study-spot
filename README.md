@@ -11,24 +11,39 @@ Built with Next.js (App Router) + TypeScript + Tailwind CSS + Supabase
 - **Cafés** and **Study Spaces** tabs, each a card grid with open/closed
   status, average rating, and a live busyness pill.
 - **Detail page** per spot: full weekly hours, wifi/outlets/noise, ratings,
-  reviews, and a "how busy is it?" check-in panel.
+  reviews, and a "how busy is it?" check-in panel. Study spaces also get
+  zones/floors, food policy, capacity, reservable rooms, lighting, best-for
+  tags, and a "grab coffee on the way" link to the nearest café.
 - **Ratings**: 1–5 overall plus noise and wifi sub-scores, one review per
   user per spot (editable).
 - **Busyness**: crowd-sourced check-ins on a 1–5 scale, weighted by recency
-  (see [Busyness algorithm](#busyness-algorithm) below).
-- **Filters**: "Open now" toggle, sort by rating.
+  (see [Busyness algorithm](#busyness-algorithm) below), plus a sparkline of
+  typical busyness by hour with the current level marked.
+- **Filters**: "Open now" toggle, sort by rating, free-text search (press
+  `/` to focus it on desktop).
+- **Desktop (≥1024px)**: a split view — scrollable list on the left, an
+  interactive Leaflet map on the right. Hovering a card highlights its
+  marker; clicking a marker scrolls to and highlights its card; clicking a
+  card opens a slide-over detail panel (no page navigation, map stays
+  visible). A time-of-day atmosphere (warm morning / neutral afternoon /
+  deep espresso-and-lamplight night) auto-switches and can be overridden
+  with the toggle in the header; it also picks a matching light/dark map
+  tile style. Mobile keeps its original card-grid + full-page detail view.
 - **Auth**: Supabase email magic links — no passwords.
 
 ## Stack
 
 - Next.js 14 (App Router, Server Components, Route Handlers)
-- TypeScript, Tailwind CSS
+- TypeScript, Tailwind CSS, Framer Motion (animation), Leaflet /
+  react-leaflet (map — free CARTO basemap tiles, no API key)
 - Supabase: Postgres tables + Row Level Security + email OTP auth
   (`@supabase/ssr` for cookie-based sessions)
 - Spot data seeded from [`data/spots.json`](data/spots.json) (12 cafés + 10
-  study spaces near UIUC, checked against public listings — see the
-  `unverified-hours` tag on a few library/union entries where I used typical
-  semester hours rather than a scraped posting)
+  study spaces near UIUC. Café hours checked against public listings; study
+  space details checked mainly against the UIUC Library's own
+  [Study Space Directory](https://www.library.illinois.edu/using-library-spaces/study-space-directory/).
+  See [Notes on data accuracy](#notes-on-data-accuracy) for what's marked
+  `unverified-*`.)
 
 ## Project structure
 
@@ -46,9 +61,15 @@ src/lib/                      Supabase clients, types, hours/busyness logic
 ### 1. Create a Supabase project
 
 Go to [supabase.com](https://supabase.com), create a project, then open the
-**SQL Editor** and run the contents of
-[`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql).
-This creates the `spots`, `reviews`, and `checkins` tables with RLS enabled.
+**SQL Editor** and run, in order:
+
+1. [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql) —
+   creates the `spots`, `reviews`, and `checkins` tables with RLS enabled.
+2. [`supabase/migrations/0002_study_space_details.sql`](supabase/migrations/0002_study_space_details.sql) —
+   adds the richer study-space columns (`zones`, `food_policy`, `capacity`,
+   `reservable_rooms`, `lighting`, `amenities`, `late_night`,
+   `access_notes`, `best_for`, `nearby_cafe_id`) plus `highlights` for
+   cafés.
 
 ### 2. Configure email auth (magic link)
 
@@ -143,3 +164,28 @@ academic calendar. Espresso Royale's Daniel St. location was verified open
 (it relocated into The Hub building in Dec. 2022 after its original
 storefront closed). The Undergraduate Library was excluded — it's been
 closed since 2022.
+
+Study-space detail fields were checked against the UIUC Library's Study
+Space Directory and each space's own reservation page where possible.
+Confirmed from those sources: Grainger's quiet-floor/loud-floor split (2nd
+& 3rd floors quiet; lower, 1st, 4th group study) and its overnight i-card
+access; ACES Funk's 6 bookable group rooms and NetID reservation system;
+MPAL's 6 lockable rooms (2 hr max, key at the service desk); Communications
+Library's exact seat counts (Room 122: 40 seats, Room 39: 51 seats);
+Champaign Public Library's 5 study rooms, "covered drinks only" policy, and
+24-hours-ahead booking window; and the Illini Union's Blue/Orange study
+rooms plus Room 187.
+
+**One correction worth flagging:** the original data (from the prior
+session) claimed the Orange Room in the Main Library was open 24/7. That
+doesn't check out — the University Library's overnight i-card access
+program is documented for Grainger, not confirmed for the Orange Room —
+so its hours now match the Main Library's and `late_night` is `false`.
+
+Fields marked `unverified-*` in a spot's `tags` (capacity, lighting,
+reservable-rooms, late-night, food-policy, as applicable) are reasonable
+estimates from general knowledge of each building rather than a scraped
+number, because the directory doesn't list that field for every space or
+I didn't find a confirmed source within the search budget for this task.
+`nearby_cafe_id` is computed from this dataset's own (approximate)
+coordinates, not a verified walking distance.

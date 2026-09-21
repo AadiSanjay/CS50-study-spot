@@ -1,7 +1,11 @@
+"use client";
+
+import { forwardRef } from "react";
 import Link from "next/link";
 import type { BusynessResult, Spot } from "@/lib/types";
 import { visibleTags } from "@/lib/spot-utils";
 import { BusynessPill } from "./BusynessPill";
+import { SpotArt } from "./SpotArt";
 
 export type SpotWithMeta = Spot & {
   openNow: boolean;
@@ -10,12 +14,30 @@ export type SpotWithMeta = Spot & {
   busyness: BusynessResult;
 };
 
-export function SpotCard({ spot }: { spot: SpotWithMeta }) {
-  return (
-    <Link
-      href={`/spot/${spot.id}`}
-      className="card block p-4 hover:shadow-lift hover:-translate-y-0.5 transition-all"
-    >
+type Props = {
+  spot: SpotWithMeta;
+  /** Desktop split view: open the slide-over instead of navigating. */
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  highlighted?: boolean;
+  /** Show the gradient header art strip (used in the desktop list). */
+  showArt?: boolean;
+};
+
+export const SpotCard = forwardRef<HTMLDivElement, Props>(function SpotCard(
+  { spot, onClick, onMouseEnter, onMouseLeave, highlighted, showArt },
+  ref
+) {
+  const body = (
+    <>
+      {showArt && (
+        <SpotArt
+          id={spot.id}
+          category={spot.category}
+          className="h-20 w-full rounded-lg mb-3"
+        />
+      )}
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg leading-snug">{spot.name}</h3>
         <span
@@ -52,6 +74,36 @@ export function SpotCard({ spot }: { spot: SpotWithMeta }) {
           ))}
         </div>
       )}
+    </>
+  );
+
+  const highlightRing = highlighted ? "ring-2 ring-perch-600" : "";
+
+  if (onClick) {
+    return (
+      <div
+        ref={ref}
+        role="button"
+        tabIndex={0}
+        onClick={onClick}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") onClick();
+        }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        className={`card block p-4 cursor-pointer hover:shadow-lift hover:-translate-y-0.5 transition-all ${highlightRing}`}
+      >
+        {body}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={`/spot/${spot.id}`}
+      className="card block p-4 hover:shadow-lift hover:-translate-y-0.5 transition-all"
+    >
+      {body}
     </Link>
   );
-}
+});

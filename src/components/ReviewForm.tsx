@@ -7,9 +7,11 @@ import type { Review } from "@/lib/types";
 export function ReviewForm({
   spotId,
   existingReview,
+  onSuccess,
 }: {
   spotId: string;
   existingReview: Review | null;
+  onSuccess?: () => void;
 }) {
   const router = useRouter();
   const [rating, setRating] = useState(existingReview?.rating ?? 5);
@@ -45,7 +47,8 @@ export function ReviewForm({
       setError("Couldn't save that review. Try again.");
       return;
     }
-    router.refresh();
+    if (onSuccess) onSuccess();
+    else router.refresh();
   }
 
   return (

@@ -90,5 +90,38 @@ export function currentChicagoHour(now: Date = new Date()): number {
   return Number(time.split(":")[0]);
 }
 
+/**
+ * "closes in 2h 15m" while open today, "opens at 8:00 AM" while closed
+ * (only looks at today's hours — doesn't scan forward to another day).
+ */
+export function openCloseCountdown(
+  hours: Hours,
+  now: Date = new Date()
+): string | null {
+  const { weekdayShort, time } = chicagoParts(now);
+  const day = hours[dayKeyFromShort(weekdayShort)];
+  if ("closed" in day && day.closed) return null;
+  if (!("open" in day)) return null;
+
+  const toMinutes = (hhmm: string) => {
+    const [h, m] = hhmm.split(":").map(Number);
+    return h * 60 + m;
+  };
+  const nowMin = toMinutes(time);
+  const openMin = toMinutes(day.open);
+  const closeMin = toMinutes(day.close);
+
+  if (nowMin >= openMin && nowMin < closeMin) {
+    const remaining = closeMin - nowMin;
+    const h = Math.floor(remaining / 60);
+    const m = remaining % 60;
+    return h > 0 ? `closes in ${h}h ${m}m` : `closes in ${m}m`;
+  }
+  if (nowMin < openMin) {
+    return `opens at ${formatTime(day.open)}`;
+  }
+  return null;
+}
+
 // unused export kept for symmetry with DAY_KEYS if needed elsewhere
 export { DAY_KEYS };

@@ -6,7 +6,7 @@ const MAX_AGE_MINUTES = 120;
 const DECAY_LAMBDA = Math.LN2 / HALF_LIFE_MINUTES;
 
 // Hardcoded "typical busyness by hour" fallback, 1 (quiet) - 5 (packed), hour-of-day 0-23.
-const TYPICAL_CURVE: Record<Category, number[]> = {
+export const TYPICAL_CURVE: Record<Category, number[]> = {
   cafe: [1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 4, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 1, 1],
   study_space: [2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 4, 3],
 };

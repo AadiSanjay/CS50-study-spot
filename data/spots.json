@@ -19,7 +19,9 @@
     "outlets": "plenty",
     "noise": 2,
     "tags": ["study-friendly", "campustown", "quiet"],
-    "source_url": "https://www.brewlab.coffee/"
+    "source_url": "https://www.brewlab.coffee/",
+    "highlights": ["single-origin pour-overs", "house-made syrups"],
+    "nearby_cafe_id": null
   },
   {
     "id": "espresso-royale-daniel",
@@ -41,7 +43,9 @@
     "outlets": "plenty",
     "noise": 3,
     "tags": ["campustown", "late-night", "classic"],
-    "source_url": "https://espressoroyale.com/location.php?id=3"
+    "source_url": "https://espressoroyale.com/location.php?id=3",
+    "highlights": ["classic espresso drinks", "late-night menu"],
+    "nearby_cafe_id": null
   },
   {
     "id": "caffe-bene",
@@ -63,7 +67,9 @@
     "outlets": "some",
     "noise": 3,
     "tags": ["bubble-tea", "spacious", "campustown"],
-    "source_url": "https://www.yelp.com/biz/caffe-bene-champaign-3"
+    "source_url": "https://www.yelp.com/biz/caffe-bene-champaign-3",
+    "highlights": ["bubble tea", "affogato"],
+    "nearby_cafe_id": null
   },
   {
     "id": "hey-bobo-cafe",
@@ -85,7 +91,9 @@
     "outlets": "some",
     "noise": 2,
     "tags": ["boba", "cozy", "toast"],
-    "source_url": "https://heybobocafe.com/"
+    "source_url": "https://heybobocafe.com/",
+    "highlights": ["boba tea", "thick toast"],
+    "nearby_cafe_id": null
   },
   {
     "id": "yummy-future",
@@ -107,7 +115,9 @@
     "outlets": "none",
     "noise": 3,
     "tags": ["robotic-cafe", "novelty", "campustown"],
-    "source_url": "https://yummy-future.com/"
+    "source_url": "https://yummy-future.com/",
+    "highlights": ["robot-made lattes", "matcha drinks"],
+    "nearby_cafe_id": null
   },
   {
     "id": "illini-union-starbucks",
@@ -129,7 +139,9 @@
     "outlets": "plenty",
     "noise": 3,
     "tags": ["campus", "chain", "reliable-wifi", "unverified-hours"],
-    "source_url": "https://union.illinois.edu/"
+    "source_url": "https://union.illinois.edu/",
+    "highlights": ["standard Starbucks menu", "mobile order"],
+    "nearby_cafe_id": null
   },
   {
     "id": "suzus-bakery",
@@ -151,7 +163,9 @@
     "outlets": "none",
     "noise": 2,
     "tags": ["bakery", "japanese", "pastries"],
-    "source_url": "https://suzusbakery.com/"
+    "source_url": "https://suzusbakery.com/",
+    "highlights": ["Japanese milk bread", "seasonal pastries"],
+    "nearby_cafe_id": null
   },
   {
     "id": "the-literary",
@@ -173,7 +187,9 @@
     "outlets": "some",
     "noise": 3,
     "tags": ["bookstore-cafe", "bar", "downtown"],
-    "source_url": "https://www.literarybookbar.com/"
+    "source_url": "https://www.literarybookbar.com/",
+    "highlights": ["Colectivo coffee", "BakeLab pastries", "cocktails"],
+    "nearby_cafe_id": null
   },
   {
     "id": "caffe-paradiso",
@@ -195,7 +211,9 @@
     "outlets": "plenty",
     "noise": 2,
     "tags": ["campus-adjacent", "classic", "patio"],
-    "source_url": "https://www.yelp.com/biz/caffe-paradiso-urbana"
+    "source_url": "https://www.yelp.com/biz/caffe-paradiso-urbana",
+    "highlights": ["classic Italian espresso", "patio seating"],
+    "nearby_cafe_id": null
   },
   {
     "id": "flying-machine-avionics",
@@ -217,7 +235,9 @@
     "outlets": "some",
     "noise": 2,
     "tags": ["local-roaster", "midtown", "cozy", "unverified-hours"],
-    "source_url": "https://www.yelp.com/biz/flying-machine-avionics-champaign"
+    "source_url": "https://www.yelp.com/biz/flying-machine-avionics-champaign",
+    "highlights": ["Page Roasting coffee, roasted on-site", "biscuits & bagels"],
+    "nearby_cafe_id": null
   },
   {
     "id": "columbia-street-roastery",
@@ -239,7 +259,9 @@
     "outlets": "some",
     "noise": 1,
     "tags": ["roastery", "retail", "quiet"],
-    "source_url": "https://www.instagram.com/csrcoffee/"
+    "source_url": "https://www.instagram.com/csrcoffee/",
+    "highlights": ["whole-bean coffee roasted on site", "loose-leaf tea"],
+    "nearby_cafe_id": null
   },
   {
     "id": "the-caffeine-rx",
@@ -261,7 +283,9 @@
     "outlets": "some",
     "noise": 2,
     "tags": ["new", "downtown", "trendy"],
-    "source_url": "https://www.doordash.com/store/the-caffeine-rx-champaign-37794427/"
+    "source_url": "https://www.doordash.com/store/the-caffeine-rx-champaign-37794427/",
+    "highlights": ["Fire Department Coffee", "Alani energy mixers"],
+    "nearby_cafe_id": null
   },
   {
     "id": "main-library",
@@ -282,30 +306,57 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 1,
-    "tags": ["quiet", "stacks", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/hours/"
+    "tags": ["quiet", "stacks", "unverified-hours", "unverified-capacity", "unverified-lighting"],
+    "source_url": "https://www.library.illinois.edu/using-library-spaces/study-space-directory/",
+    "zones": [
+      { "name": "General Stacks & Reading Rooms", "floor": "2nd–3rd", "noise": 1, "vibe": "traditional quiet stacks and individual carrels" },
+      { "name": "Shebik Family Reading Room (Rm 200)", "floor": "2nd", "noise": 2, "vibe": "comfortable lounge seating, natural light" },
+      { "name": "Bookable group study rooms", "floor": "1st–2nd", "noise": 3, "vibe": "small enclosed rooms for group work" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 1200,
+    "reservable_rooms": { "count": 5, "link": "https://libcal.library.illinois.edu/spaces?c=0&gid=0&lid=3608" },
+    "lighting": "mixed",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": false, "group_tables": true, "accessibility": true },
+    "late_night": true,
+    "access_notes": "Open until midnight most nights; individual rooms are reservable via LibCal",
+    "best_for": ["deep focus", "quick session"],
+    "nearby_cafe_id": "espresso-royale-daniel"
   },
   {
     "id": "orange-room",
     "name": "The Orange Room",
     "category": "study_space",
-    "address": "1408 W Gregory Dr, Urbana, IL 61801 (Main Library, ground floor)",
+    "address": "1408 W Gregory Dr, Urbana, IL 61801 (Main Library, Rooms 100 & 112)",
     "lat": 40.1047,
     "lng": -88.2287,
     "hours": {
-      "mon": { "open": "00:00", "close": "24:00" },
-      "tue": { "open": "00:00", "close": "24:00" },
-      "wed": { "open": "00:00", "close": "24:00" },
-      "thu": { "open": "00:00", "close": "24:00" },
-      "fri": { "open": "00:00", "close": "24:00" },
-      "sat": { "open": "00:00", "close": "24:00" },
-      "sun": { "open": "00:00", "close": "24:00" }
+      "mon": { "open": "08:00", "close": "24:00" },
+      "tue": { "open": "08:00", "close": "24:00" },
+      "wed": { "open": "08:00", "close": "24:00" },
+      "thu": { "open": "08:00", "close": "24:00" },
+      "fri": { "open": "08:00", "close": "21:00" },
+      "sat": { "open": "09:00", "close": "21:00" },
+      "sun": { "open": "09:00", "close": "24:00" }
     },
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 5,
-    "tags": ["loud", "food-ok", "24-7", "group-study", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/hours/"
+    "tags": ["loud", "food-ok", "group-study", "unverified-hours", "unverified-capacity", "unverified-late-night"],
+    "source_url": "https://www.library.illinois.edu/using-library-spaces/study-space-directory/the-orange-room/",
+    "zones": [
+      { "name": "Room 100", "floor": "1st", "noise": 5, "vibe": "lively, food and drinks welcome, lounge seating and TVs" },
+      { "name": "Room 112", "floor": "1st", "noise": 4, "vibe": "group tables, casual group work" }
+    ],
+    "food_policy": "food OK",
+    "capacity": 300,
+    "reservable_rooms": { "count": 0, "link": null },
+    "lighting": "fluorescent",
+    "amenities": { "whiteboards": false, "printing": true, "outlets": true, "monitors": true, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Follows Main Library hours; a prior 24/7 claim for this room could not be confirmed — the University Library's overnight i-card access program is documented for Grainger, not specifically the Orange Room, so check posted hours before counting on it late at night",
+    "best_for": ["group projects", "quick session"],
+    "nearby_cafe_id": "espresso-royale-daniel"
   },
   {
     "id": "grainger-engineering-library",
@@ -326,8 +377,24 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 2,
-    "tags": ["engineering", "group-rooms", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/grainger/"
+    "tags": ["engineering", "group-rooms", "unverified-hours", "unverified-capacity", "unverified-lighting"],
+    "source_url": "https://www.library.illinois.edu/enx/study-spaces/",
+    "zones": [
+      { "name": "2nd Floor", "floor": "2nd", "noise": 1, "vibe": "quiet individual study" },
+      { "name": "3rd Floor East", "floor": "3rd", "noise": 1, "vibe": "quiet individual study" },
+      { "name": "1st Floor", "floor": "1st", "noise": 3, "vibe": "tech and group study, information desk" },
+      { "name": "Lower Floor", "floor": "Lower", "noise": 3, "vibe": "group study space, noise encouraged" },
+      { "name": "4th Floor Central", "floor": "4th", "noise": 3, "vibe": "group study, noise encouraged" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 900,
+    "reservable_rooms": { "count": 4, "link": "https://www.library.illinois.edu/enx/study-spaces/" },
+    "lighting": "natural light",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": true, "group_tables": true, "accessibility": true },
+    "late_night": true,
+    "access_notes": "24-hour i-card access is offered several nights a week during the semester (i-card required 12am–6am)",
+    "best_for": ["deep focus", "group projects"],
+    "nearby_cafe_id": "hey-bobo-cafe"
   },
   {
     "id": "aces-library",
@@ -348,8 +415,22 @@
     "wifi": "plenty",
     "outlets": "some",
     "noise": 1,
-    "tags": ["quiet", "agriculture", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/aces/"
+    "tags": ["quiet", "agriculture", "unverified-hours", "unverified-capacity", "unverified-lighting"],
+    "source_url": "https://www.library.illinois.edu/funkaces/services/room_reservation/",
+    "zones": [
+      { "name": "3rd Floor group rooms", "floor": "3rd", "noise": 3, "vibe": "bookable group rooms with tables and whiteboards" },
+      { "name": "4th Floor group rooms", "floor": "4th", "noise": 3, "vibe": "bookable group rooms, some with display monitors" },
+      { "name": "Reading areas", "floor": "1st–2nd", "noise": 1, "vibe": "quiet individual study among agricultural collections" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 250,
+    "reservable_rooms": { "count": 6, "link": "https://libcal.library.illinois.edu/reserve/funkaces" },
+    "lighting": "mixed",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": true, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Group rooms bookable online with NetID in 2-hour blocks, up to 14 days ahead",
+    "best_for": ["group projects", "deep focus"],
+    "nearby_cafe_id": "espresso-royale-daniel"
   },
   {
     "id": "music-performing-arts-library",
@@ -370,8 +451,22 @@
     "wifi": "plenty",
     "outlets": "some",
     "noise": 1,
-    "tags": ["quiet", "practice-rooms", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/mpal/"
+    "tags": ["quiet", "practice-rooms", "unverified-hours", "unverified-capacity"],
+    "source_url": "https://www.library.illinois.edu/mpal/about/facilities/study-spaces/",
+    "zones": [
+      { "name": "MPAL Reading Room", "floor": "1st", "noise": 1, "vibe": "quiet reading room for scores and reference" },
+      { "name": "1st Floor", "floor": "1st", "noise": 2, "vibe": "general study seating" },
+      { "name": "2nd Floor listening carrels", "floor": "2nd", "noise": 2, "vibe": "individual carrels with turntables, CD/cassette playback" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 120,
+    "reservable_rooms": { "count": 6, "link": "https://libcal.library.illinois.edu/spaces?lid=3153" },
+    "lighting": "fluorescent",
+    "amenities": { "whiteboards": true, "printing": false, "outlets": true, "monitors": true, "group_tables": false, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Rooms are locked; pick up the key at the MPAL service desk after booking (max 2 hrs, 2 reservations/week)",
+    "best_for": ["deep focus", "quick session"],
+    "nearby_cafe_id": "espresso-royale-daniel"
   },
   {
     "id": "communications-library",
@@ -392,8 +487,21 @@
     "wifi": "plenty",
     "outlets": "some",
     "noise": 1,
-    "tags": ["quiet", "small", "unverified-hours"],
-    "source_url": "https://www.library.illinois.edu/cnnl/"
+    "tags": ["quiet", "small", "unverified-hours", "unverified-lighting"],
+    "source_url": "https://www.library.illinois.edu/using-library-spaces/study-space-directory/communications-library-room-122/",
+    "zones": [
+      { "name": "Room 122", "floor": "Gregory Hall", "noise": 2, "vibe": "8 tables, seats about 40" },
+      { "name": "Room 39", "floor": "Gregory Hall, lower level", "noise": 2, "vibe": "13 tables, seats about 51" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 91,
+    "reservable_rooms": { "count": 0, "link": null },
+    "lighting": "fluorescent",
+    "amenities": { "whiteboards": false, "printing": true, "outlets": true, "monitors": false, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Small specialized library; no late-night access",
+    "best_for": ["quick session", "deep focus"],
+    "nearby_cafe_id": "espresso-royale-daniel"
   },
   {
     "id": "illini-union-study-rooms",
@@ -414,8 +522,22 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 3,
-    "tags": ["group-rooms", "bookable", "unverified-hours"],
-    "source_url": "https://union.illinois.edu/"
+    "tags": ["group-rooms", "bookable", "unverified-hours", "unverified-capacity", "unverified-food-policy"],
+    "source_url": "https://union.illinois.edu/studyspaces",
+    "zones": [
+      { "name": "Blue Study Room", "floor": "Union", "noise": 2, "vibe": "reservable enclosed study room" },
+      { "name": "Orange Study Room (Union)", "floor": "Union", "noise": 2, "vibe": "reservable enclosed study room" },
+      { "name": "Room 187 conference room", "floor": "Union", "noise": 2, "vibe": "bookable via request form" }
+    ],
+    "food_policy": "food OK",
+    "capacity": 150,
+    "reservable_rooms": { "count": 3, "link": "https://union.illinois.edu/studyspaces" },
+    "lighting": "mixed",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": false, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Reserve the Blue/Orange study rooms or Room 187 through Illini Union Event Services",
+    "best_for": ["group projects", "quick session"],
+    "nearby_cafe_id": "illini-union-starbucks"
   },
   {
     "id": "siebel-center",
@@ -436,8 +558,21 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 2,
-    "tags": ["cs", "whiteboards", "unverified-hours"],
-    "source_url": "https://siebelschool.illinois.edu/"
+    "tags": ["cs", "whiteboards", "unverified-hours", "unverified-capacity", "unverified-reservable-rooms", "unverified-late-night", "unverified-food-policy"],
+    "source_url": "https://siebelschool.illinois.edu/",
+    "zones": [
+      { "name": "Open collaboration areas", "floor": "1st–4th", "noise": 3, "vibe": "lounge seating and whiteboards scattered by floor" },
+      { "name": "Bookable conference rooms", "floor": "varies", "noise": 2, "vibe": "small rooms with displays for group work" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 400,
+    "reservable_rooms": { "count": 0, "link": null },
+    "lighting": "natural light",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": true, "group_tables": true, "accessibility": true },
+    "late_night": true,
+    "access_notes": "General access during building hours; some labs require a CS department badge",
+    "best_for": ["deep focus", "group projects"],
+    "nearby_cafe_id": "hey-bobo-cafe"
   },
   {
     "id": "business-instructional-facility",
@@ -458,8 +593,21 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 2,
-    "tags": ["business", "modern", "unverified-hours"],
-    "source_url": "https://www.business.illinois.edu/bif/"
+    "tags": ["business", "modern", "unverified-hours", "unverified-capacity", "unverified-reservable-rooms", "unverified-food-policy"],
+    "source_url": "https://www.business.illinois.edu/bif/",
+    "zones": [
+      { "name": "Atrium & lounge seating", "floor": "1st", "noise": 3, "vibe": "bright open atrium, casual seating" },
+      { "name": "Group study rooms", "floor": "2nd–3rd", "noise": 2, "vibe": "bookable small rooms for team projects" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 300,
+    "reservable_rooms": { "count": 0, "link": null },
+    "lighting": "natural light",
+    "amenities": { "whiteboards": true, "printing": true, "outlets": true, "monitors": true, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "General access during building hours; Gies students may have extended badge access",
+    "best_for": ["group projects", "quick session"],
+    "nearby_cafe_id": "brewlab-coffee"
   },
   {
     "id": "champaign-public-library",
@@ -480,7 +628,20 @@
     "wifi": "plenty",
     "outlets": "plenty",
     "noise": 1,
-    "tags": ["public", "quiet", "off-campus"],
-    "source_url": "https://champaign.org/"
+    "tags": ["public", "quiet", "off-campus", "unverified-capacity"],
+    "source_url": "https://www.champaigncountylibrary.org/stdyrms",
+    "zones": [
+      { "name": "1st Floor study rooms", "floor": "1st", "noise": 2, "vibe": "two enclosed rooms, covered drinks only" },
+      { "name": "2nd Floor study rooms", "floor": "2nd", "noise": 1, "vibe": "three enclosed rooms, quieter floor" }
+    ],
+    "food_policy": "covered drinks",
+    "capacity": 120,
+    "reservable_rooms": { "count": 5, "link": "https://champaign.libnet.info/reserve" },
+    "lighting": "natural light",
+    "amenities": { "whiteboards": false, "printing": true, "outlets": true, "monitors": false, "group_tables": true, "accessibility": true },
+    "late_night": false,
+    "access_notes": "Study rooms reservable online, up to 2 hours/day per group; opens 24 hrs ahead",
+    "best_for": ["quick session", "group projects"],
+    "nearby_cafe_id": "the-literary"
   }
 ]
